@@ -1,4 +1,4 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-primary is-link" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
         <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
@@ -12,10 +12,10 @@
     </div>
     <div class="navbar-menu" [ngClass]="status ? 'is-active' : ''">
       <!-- hidden on mobile -->
-      <a routerLink='/dashboard' class="navbar-item" routerLinkActive="is-link" [routerLinkActiveOptions]="{ exact: true }">     
+      <a routerLink='/dashboard' class="navbar-item" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">     
          Home
       </a>
-      <a routerLink="/cmsberita" class="navbar-item" routerLinkActive="is-link">
+      <a routerLink="/cmsberita" class="navbar-item" routerLinkActive="is-active">
         Berita
       </a>
   

@@ -12,15 +12,13 @@ import { ButtonsubmitComponent } from './buttonsubmit/buttonsubmit.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ButtonaddComponent,
-    EditComponent,
-    ButtonsubmitComponent
-  ],
+   ],
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     AppRoutingModule
   ],
+  exports:[],
   providers: [],
   bootstrap: [AppComponent]
 })

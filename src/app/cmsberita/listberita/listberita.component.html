@@ -1,4 +1,51 @@
 <app-navbar></app-navbar>
 <section class="section">
-  ini list berita
+  <app-buttonadd (click)="tooglemodals()"></app-buttonadd>
+</section>
+<section class="section">
+  <app-table></app-table>
+  <div class="modal"  [ngClass]="status ? 'is-active' : ''">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Masukkan Data Berita</p>
+        <button class="delete" aria-label="close" (click)="tooglemodals()"></button>
+      </header>
+      <section class="modal-card-body">
+        <div class="control">
+          <label>Title</label>
+          <input class="input" type="text" placeholder="title">
+        </div>
+        <div class="control">
+          <label>Deskripsi Singkat</label>
+          <textarea class="textarea" placeholder="e.g. Hello world"></textarea>
+        </div>
+        <div class="control">
+          <label>Deskripsi Lengkap</label>
+          <textarea class="textarea" placeholder="e.g. Hello world"></textarea>
+        </div>
+        <br>
+        <div class="file has-name">
+          <label class="file-label">
+            <input class="file-input" type="file" name="resume">
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Choose a file…
+              </span>
+            </span>
+            <span class="file-name">
+              Screen Shot 2017-07-29 at 15.54.25.png
+            </span>
+          </label>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Save changes</button>
+        <button class="button" (click)="tooglemodals()">Cancel</button>
+      </footer>
+    </div>
+  </div>
 </section>

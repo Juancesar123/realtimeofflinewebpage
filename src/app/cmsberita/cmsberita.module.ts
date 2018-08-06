@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { CmsberitaRoutingModule } from './cmsberita-routing.module';
 import { ListberitaComponent } from './listberita/listberita.component';
-import { ModalinputComponent } from './modalinput/modalinput.component';
-import { ModalupdateComponent } from './modalupdate/modalupdate.component';
 import { DashboardModule } from './../dashboard/dashboard.module';
- 
+import { ButtonsubmitComponent } from './../buttonsubmit/buttonsubmit.component';
+import { ComponentModuleModule } from './../component-module/component-module.module';
+import { TableComponent } from './table/table.component';
+
 @NgModule({
   imports: [
-  CommonModule,
+ 
+CommonModule,
     CmsberitaRoutingModule,
-    DashboardModule
+    DashboardModule,
+    ComponentModuleModule
   ],
-  declarations: [ListberitaComponent, ModalinputComponent, ModalupdateComponent]
+  declarations: [ListberitaComponent, TableComponent]
 })
 export class CmsberitaModule { }

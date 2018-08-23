@@ -62,4 +62,12 @@ export class ListberitaComponent implements OnInit {
     let id = item._id;
     this.data.delete$(id);
   }
+  /*
+  function for cache clear
+  */
+  clearcache(){
+    this.data.ClearCache().subscribe(val =>{
+      console.log('sukses');
+    })
+  }
 }

@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { BeritaRoutingModule } from './berita-routing.module';
 import { BeritaComponent } from './berita/berita.component';
 import { HomepageModule } from './../homepage/homepage.module';
-  
+import { HttpClientModule } from '@angular/common/http'; 
 @NgModule({
   imports: [
-  CommonModule,
+ 
+CommonModule,
     BeritaRoutingModule,
-    HomepageModule
+    HomepageModule,
+    HttpClientModule
   ],
   declarations: [BeritaComponent]
 })

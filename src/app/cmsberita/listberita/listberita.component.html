@@ -1,6 +1,13 @@
 <app-navbar></app-navbar>
 <section class="section">
   <app-buttonadd (click)="tooglemodals()"></app-buttonadd>
+
+  <button class="button is-info is-outlined" (click)="clearcache()"> 
+      <span class="icon">
+        <i class="fa fa-sync-alt"></i>
+      </span>
+      <span>Refresh</span>
+  </button>
 </section>
 <section class="section">
   <table class="table  is-striped is-hoverable is-fullwidth">

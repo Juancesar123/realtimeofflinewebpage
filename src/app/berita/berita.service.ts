@@ -27,6 +27,9 @@ export class BeritaService {
     { batch: false, cache: false }
   );
   }
+  ClearCache(){
+    return this.http.get('http://localhost:3030/cache/clear');
+  }
   delete$(id){
     this.feathers.service('berita').remove(id);
   }

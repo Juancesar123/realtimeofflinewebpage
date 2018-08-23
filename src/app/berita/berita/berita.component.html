@@ -4,7 +4,9 @@
     ini berita
   </h1>
   <h3 class="subtitle">
-    ini deskripsi
+    <ul *ngFor="let item of data$ | async">
+      <li>{{item.title}}</li>
+    </ul>
   </h3>
 </section>
 <app-footer></app-footer>

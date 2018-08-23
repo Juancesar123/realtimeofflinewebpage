@@ -3,18 +3,19 @@ import { CommonModule } from '@angular/common';
 import { CmsberitaRoutingModule } from './cmsberita-routing.module';
 import { ListberitaComponent } from './listberita/listberita.component';
 import { DashboardModule } from './../dashboard/dashboard.module';
-import { ButtonsubmitComponent } from './../buttonsubmit/buttonsubmit.component';
 import { ComponentModuleModule } from './../component-module/component-module.module';
-import { TableComponent } from './table/table.component';
-
+import { FormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination'; 
 @NgModule({
   imports: [
  
 CommonModule,
     CmsberitaRoutingModule,
     DashboardModule,
-    ComponentModuleModule
+    ComponentModuleModule,
+    FormsModule,
+    NgxPaginationModule
   ],
-  declarations: [ListberitaComponent, TableComponent]
+  declarations: [ListberitaComponent]
 })
 export class CmsberitaModule { }

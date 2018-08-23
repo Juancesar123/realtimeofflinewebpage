@@ -18,6 +18,7 @@
  * BROWSER POLYFILLS
  */
 
+(window as any).global = window;
 /** IE9, IE10 and IE11 requires all of the following polyfills. **/
 // import 'core-js/es6/symbol';
 // import 'core-js/es6/object';
@@ -39,7 +40,6 @@
 
 /** IE10 and IE11 requires the following for the Reflect API. */
 // import 'core-js/es6/reflect';
-(window as any).global = window;
 
 /** Evergreen browsers require these. **/
 // Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.

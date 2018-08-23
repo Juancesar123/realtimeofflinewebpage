@@ -5,9 +5,8 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './/app-routing.module';
-import { ButtonaddComponent } from './buttonadd/buttonadd.component';
-import { EditComponent } from './edit/edit.component';
-import { ButtonsubmitComponent } from './buttonsubmit/buttonsubmit.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,8 @@ import { ButtonsubmitComponent } from './buttonsubmit/buttonsubmit.component';
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   exports:[],
   providers: [],

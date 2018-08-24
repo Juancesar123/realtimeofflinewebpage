@@ -28,7 +28,7 @@ export class BeritaService {
   );
   }
   ClearCache(){
-    return this.http.get('http://localhost:3030/cache/clear');
+    return this.http.get('https://realtimeapi.rdlvindonesia.com/cache/clear');
   }
   delete$(id){
     this.feathers.service('berita').remove(id);

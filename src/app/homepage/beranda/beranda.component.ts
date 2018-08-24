@@ -11,5 +11,8 @@ export class BerandaComponent implements OnInit {
 
   ngOnInit() {
   }
+  Click(){
+    alert('hello world')
+  }
 
 }

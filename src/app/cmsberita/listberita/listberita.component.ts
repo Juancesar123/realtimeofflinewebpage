@@ -14,12 +14,14 @@ declare var $:any;
 })
 export class ListberitaComponent implements OnInit {
   status: boolean = false;
+  status2: boolean = false;
   messages$: Observable<any[]>;
   title:string;
   deskripsisingkat:string;
   fileToUpload;
   deskripsilengkap:string;
   apigambar:string = Configendpoint.endpointapi;
+  id:string
   constructor(public data: BeritaService) {  
     this.messages$ = data.messages$()
     .pipe(map( m => m))
@@ -68,5 +70,42 @@ export class ListberitaComponent implements OnInit {
   Delete(item){
     let id = item._id;
     this.data.delete$(id);
+  }
+  UpdateForm(item){
+    this.status2 = !this.status2
+    this.deskripsisingkat = item.deskripsi
+    this.deskripsilengkap = item.deskripsipanjang
+    this.title = item.title
+    this.id = item._id
+  }
+  tooglemodalsubal(){
+    this.status2 = !this.status2
+  }
+  ActionUpdate(){
+    if(this.fileToUpload == null){
+      let data = {
+        "title":this.title,
+        "deskripsi":this.deskripsisingkat,
+        "deskripsipanjang":this.deskripsilengkap
+      }
+      let id = this.id
+      this.data.UbahDataNoimage$(id,data)
+      this.deskripsisingkat = ''
+      this.deskripsilengkap = ''
+      this.title = ''
+    }else{
+      let data = {
+        "title":this.title,
+        "deskripsi":this.deskripsisingkat,
+        "deskripsipanjang":this.deskripsilengkap,
+        "gambar": "img/"+this.fileToUpload.name
+      }
+      let id = this.id
+      this.data.UbahDataImage$(data,this.fileToUpload,id).subscribe( val =>{
+        this.deskripsisingkat = ''
+        this.deskripsilengkap = ''
+        this.title = ''
+      })
+    }
   }
 }

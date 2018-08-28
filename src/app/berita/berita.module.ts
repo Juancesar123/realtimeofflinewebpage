@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { BeritaRoutingModule } from './berita-routing.module';
 import { BeritaComponent } from './berita/berita.component';
 import { HomepageModule } from './../homepage/homepage.module';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { BeritadetailComponent } from './beritadetail/beritadetail.component'; 
 @NgModule({
   imports: [
  
@@ -13,6 +14,6 @@ CommonModule,
     HomepageModule,
     HttpClientModule
   ],
-  declarations: [BeritaComponent]
+  declarations: [BeritaComponent, BeritadetailComponent]
 })
 export class BeritaModule { }

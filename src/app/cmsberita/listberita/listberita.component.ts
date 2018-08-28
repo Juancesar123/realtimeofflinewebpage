@@ -4,6 +4,8 @@ import { map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 import { BeritaInterface } from './../beritaInterface';
 import { PaginationInstance } from 'ngx-pagination';
+import { Configendpoint } from './../../config/configendpoint';
+declare var $:any;
 @Component({
   selector: 'app-listberita',
   templateUrl: './listberita.component.html',
@@ -13,12 +15,11 @@ import { PaginationInstance } from 'ngx-pagination';
 export class ListberitaComponent implements OnInit {
   status: boolean = false;
   messages$: Observable<any[]>;
-  users$: Observable<any[]>;
   title:string;
   deskripsisingkat:string;
+  fileToUpload;
   deskripsilengkap:string;
-  value;
-  p:number = 1;
+  apigambar:string = Configendpoint.endpointapi;
   constructor(public data: BeritaService) {  
     this.messages$ = data.messages$()
     .pipe(map( m => m))
@@ -31,20 +32,26 @@ export class ListberitaComponent implements OnInit {
     itemsPerPage: 10,
     currentPage: 1
   };
-  onfilechange(){
-    
-  }
   ngOnInit() {
    
   }
-
+  //catch file
+  onFileChange(event) {
+    if(event.target.files.length > 0) {
+        //get name file etc
+        this.fileToUpload = event.target.files[0];
+      }
+  }
   simpan(){
     let data = {
       "title":this.title,
       "deskripsi":this.deskripsisingkat,
-      "deskripsipanjang":this.deskripsilengkap
+      "deskripsipanjang":this.deskripsilengkap,
+      "gambar": "img/"+this.fileToUpload.name
     }
-    this.data.simpan$(data)
+    this.data.simpan$(data,this.fileToUpload).subscribe( val =>{
+      console.log('sasa');
+    })
   }
   //for toggle modals
   tooglemodals(){
@@ -61,13 +68,5 @@ export class ListberitaComponent implements OnInit {
   Delete(item){
     let id = item._id;
     this.data.delete$(id);
-  }
-  /*
-  function for cache clear
-  */
-  clearcache(){
-    this.data.ClearCache().subscribe(val =>{
-      console.log('sukses');
-    })
   }
 }

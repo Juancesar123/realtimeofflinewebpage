@@ -14,7 +14,7 @@ CommonModule,
     DashboardModule,
     ComponentModuleModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   declarations: [ListberitaComponent]
 })

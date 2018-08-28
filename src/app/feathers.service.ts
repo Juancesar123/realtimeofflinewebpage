@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as feathersRx from 'feathers-reactive';
 import * as io from 'socket.io-client';
-
+import snapshot from 'feathers-offline-snapshot';
 import feathers from '@feathersjs/feathers';
 import feathersSocketIOClient from '@feathersjs/socketio-client';
 import feathersAuthClient from '@feathersjs/authentication-client';
@@ -11,7 +11,7 @@ import feathersAuthClient from '@feathersjs/authentication-client';
 export class FeathersService {
 
   private _feathers = feathers();                     // init socket.io
-  private _socket = io('https://realtimeapi.rdlvindonesia.com');      // init feathers
+  private _socket = io('http://localhost:3030');      // init feathers
   constructor() {
     this._feathers
       .configure(feathersSocketIOClient(this._socket))  // add socket.io plugin

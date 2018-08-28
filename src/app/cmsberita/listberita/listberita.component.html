@@ -1,27 +1,18 @@
 <app-navbar></app-navbar>
 <section class="section">
   <app-buttonadd (click)="tooglemodals()"></app-buttonadd>
-
-  <button class="button is-info is-outlined" (click)="clearcache()"> 
-      <span class="icon">
-        <i class="fa fa-sync-alt"></i>
-      </span>
-      <span>Refresh</span>
-  </button>
 </section>
 <section class="section">
   <table class="table  is-striped is-hoverable is-fullwidth">
     <thead>
       <th>Judul Berita</th>
-      <th>Deskripsi</th>
-      <th>Deskripsi Panjang</th>
+      <th>Gambar</th>
       <th>Action</th>
     </thead>
     <tbody>
       <tr *ngFor="let item of messages$ | async  | paginate: config; trackBy: trackById">
         <td>{{item.title}}</td>
-        <td>{{item.deskripsi}}</td>
-        <td>{{item.deskripsipanjang}}</td>
+        <td><img src="{{apigambar}}/{{item.gambar}}" width="100" height="100"></td>
         <td><button class="button is-danger" (click)="Delete(item)">Delete</button></td>
       </tr>
     </tbody>
@@ -47,22 +38,28 @@
         <button class="delete" aria-label="close" (click)="tooglemodals()"></button>
       </header>
       <section class="modal-card-body">
-        <div class="control">
-          <label>Title</label>
-          <input class="input" type="text" placeholder="title" [(ngModel)]="title">
+        <div class="field">
+          <div class="control">
+            <label>Title</label>
+            <input class="input is-primary" type="text" placeholder="Primary input" [(ngModel)]="title">
+          </div>
         </div>
-        <div class="control">
-          <label>Deskripsi Singkat</label>
-          <textarea class="textarea" placeholder="e.g. Hello world"  [(ngModel)]="deskripsisingkat"></textarea>
+        <div class="field">
+          <div class="control">
+            <label>Deskripsi Singkat</label>
+            <textarea class="textarea is-primary" type="text" placeholder="Primary textarea" [(ngModel)]="deskripsisingkat"></textarea>
+          </div>
         </div>
-        <div class="control">
-          <label>Deskripsi Lengkap</label>
-          <textarea class="textarea" placeholder="e.g. Hello world"  [(ngModel)]="deskripsilengkap"></textarea>
+        <div class="field">
+          <div class="control">
+            <label>Deskripsi Lengkap</label>
+            <textarea class="textarea is-primary" type="text" placeholder="Primary textarea" [(ngModel)]="deskripsilengkap"></textarea>
+          </div>
         </div>
         <br>
         <div class="file has-name">
           <label class="file-label">
-            <input class="file-input" type="file" name="resume" (change)="onfilechange()">
+            <input class="file-input" type="file" name="resume" (change)="onFileChange($event)">
             <span class="file-cta">
               <span class="file-icon">
                 <i class="fas fa-upload"></i>

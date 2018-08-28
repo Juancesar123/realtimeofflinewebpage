@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<div clas="container">
+<section class="section" *ngFor="let item of data$ | async">
+  <h1 class="title has-text-centered">
+    {{item.title}}
+  </h1>
+  <img src="{{apigambar}}/{{item.gambar}}" class="image center">
+  {{item.deskripsipanjang}}
+</section>
+</div>
+<app-footer></app-footer>
